@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calyb Test</title>
+    <script type="text/javascript" src="http://localhost:8080/scripts/copilot.js"></script>
+</head>
+<body>
+    <h1>Calyb Test Page</h1>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof window.calyb !== 'undefined') {
+                calyb.init("e9ef5fcb-7f00-44c8-a38b-7ecc99074963");
+                const customStyles = {
+                    chatContainer: {
+                    position: 'fixed',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: '500px',
+                    width: '400px',
+                    bottom: '40px',
+                    right: '20px',
+                    zIndex: 1000,
+                    borderRadius: '16px',
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                    overflow: 'hidden',
+                    backgroundColor: 'lightgreen'
+            },
+                }
+                calyb.setupCopilot(userId="abcd1234", copilotToggleLogo="https://lh3.googleusercontent.com/pinlOpXYFy2M2k32S3GVhVVYQ0rTyWTX3uP1X8J6FRkPXgfXmr2KeJk1vgWOvHd3_nAZkfWErj88dwmQr3iM587kYn0cxVhqG8vkaw", copilotHeaderLogo="https://lh3.googleusercontent.com/pinlOpXYFy2M2k32S3GVhVVYQ0rTyWTX3uP1X8J6FRkPXgfXmr2KeJk1vgWOvHd3_nAZkfWErj88dwmQr3iM587kYn0cxVhqG8vkaw", copilotHeader="Hello", styles=customStyles);
+            } else {
+                console.error('Calyb script not loaded properly. calyb object is undefined.');
+            }
+        });
+    </script>
+</body>
+</html>
