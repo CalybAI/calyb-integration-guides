@@ -1,0 +1,21 @@
+# Angular build artifacts
+dist/
+build/
+
+# Dependency directories
+node_modules/
+
+# Angular cache files
+.angular/cache/
+
+# IDE specific files
+.idea/
+.vscode/
+
+# Environment files
+*.env
+
+# Optional: Logs and temporary files
+logs/
+*.log
+*.tmp
