@@ -23,6 +23,7 @@ interface Calyb {
   // Methods for user registration and updating
   registerUser(userId: string, userFirstName: string, userLastName?: string, userTags?: string): Promise<void>;
   updateUser(userId: string, userFirstName?: string, userLastName?: string, userTags?: string): Promise<void>;
+  checkUserExists(userId: string): Promise<boolean>;
 }
 
 declare global {
@@ -80,23 +81,48 @@ export class CalybService {
     }
   }
 
+  async checkUserExists(userId: string): Promise<boolean> {
+    if (typeof window.calyb !== 'undefined') {
+      try {
+        const userExists = await window.calyb.checkUserExists(userId);
+        return userExists;
+      } catch (error) {
+        console.error('Failed to check if user exists', error);
+        return false;
+      }
+    }
+    return false;
+  }
+  
   async registerUser(userId: string, firstName: string, lastName?: string, tags?: string): Promise<void> {
     if (typeof window.calyb !== 'undefined') {
       try {
-        await window.calyb.registerUser(userId, firstName, lastName, tags);
+        const userExists = await this.checkUserExists(userId);
+        if (!userExists) {
+          await window.calyb.registerUser(userId, firstName, lastName, tags);
+          console.log('User registered successfully');
+        } else {
+          console.log('User already exists');
+        }
       } catch (error) {
         console.error('Failed to register user', error);
       }
     }
   }
-
+  
   async updateUser(userId: string, firstName?: string, lastName?: string, tags?: string): Promise<void> {
     if (typeof window.calyb !== 'undefined') {
       try {
-        await window.calyb.updateUser(userId, firstName, lastName, tags);
+        const userExists = await this.checkUserExists(userId);
+        if (userExists) {
+          await window.calyb.updateUser(userId, firstName, lastName, tags);
+          console.log('User updated successfully');
+        } else {
+          console.log('User does not exist');
+        }
       } catch (error) {
         console.error('Failed to update user', error);
       }
     }
   }
-}
+} 

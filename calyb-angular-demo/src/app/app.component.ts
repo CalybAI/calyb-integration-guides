@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
     const userId = 'abcd1234'; // Replace with the actual user ID
 
     this.calybService.init(apiKey);  // Initialize Calyb
+    console.log(this.calybService.checkUserExists(userId)); // Check if the user exists
     this.calybService.setupCopilot(userId); // Set up the copilot with the user ID
   }
 }

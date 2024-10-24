@@ -26,6 +26,12 @@ This file contains all the Calyb SDK methods. You can directly add this service 
 
   If the `calyb` object is undefined, an error is logged.
 
+- **Check User (`checkUserExists`)**:
+  Check if a user exists
+  - `userId`
+
+  Return a boolean value true or false.
+
 - **User Registration (`registerUser`)**:  
   Registers a user by passing their:
   - `userId`
