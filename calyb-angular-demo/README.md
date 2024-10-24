@@ -1,27 +1,47 @@
-# CalybAngularDemo
+### Angular/Typescript Integration
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+For **Angular Integration**, refer to the [`'src/app/services/calyb.service.ts'`](./src/app/services/calyb.service.ts) file.
 
-## Development server
+This file contains all the Calyb SDK methods. You can directly add this service to your codebase and start using Calyb immediately. The available methods are:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+#### SDK Methods:
 
-## Code scaffolding
+- **Initialization (`init`)**:  
+  Initializes the `calyb` object with an API key. If the `calyb` object isn't available, an error is logged.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Copilot Setup (`setupCopilot`)**:  
+  Configures a copilot widget for a user with custom UI styles. It allows customization of:
+  - Toggle logo
+  - Header logo
+  - Title heading
+  - Styles (position, dimensions, background color, etc.)
 
-## Build
+  If the `calyb` object is undefined, an error is logged.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **User Registration (`registerUser`)**:  
+  Registers a user by passing their:
+  - `userId`
+  - `firstName`
+  - Optional `lastName`
+  - Optional `tags`
+  
+  Returns a promise and logs an error if registration fails.
 
-## Running unit tests
+- **User Update (`updateUser`)**:  
+  Updates a user’s details including:
+  - `userId`
+  - `firstName`
+  - Optional `lastName`
+  - Optional `tags`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  Also handles potential errors during the update process.
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### TypeScript Support
 
-## Further help
+Type declarations are defined within the service for the `Calyb` instance delivered by the script, making it seamless to integrate Calyb directly into **TypeScript** based projects.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Demo
+
+A demo for initializing the **Copilot** and setting up a **User Session** is demonstrated in the `app.component.ts`.

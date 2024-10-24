@@ -8,7 +8,7 @@ For **Vanilla JS Integration**, refer to the [**calyb-vanilla-demo**](./calyb-va
 
 ### Angular/Typescript Integration
 
-For **Angular Integration**, refer to the `'src/app/services/calyb.service.ts'` file in the [**calyb-angular-demo**](./calyb-angular-demo) folder.
+For **Angular Integration**, refer to the [`'src/app/services/calyb.service.ts'`](./calyb-angular-demo/src/app/services/calyb.service.ts) file in the [**calyb-angular-demo**](./calyb-angular-demo) folder.
 
 This file contains all the Calyb SDK methods. You can directly add this service to your codebase and start using Calyb immediately. The available methods are:
 
